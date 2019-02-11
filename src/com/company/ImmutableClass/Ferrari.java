@@ -1,16 +1,16 @@
 package com.company.ImmutableClass;
 
-public class Ferrari {
+public final class Ferrari {
     private final int speed;
     private  final String color;
     private final int horsePower;
-    private final double pPM;
+    private final double petrolPerMiles;
 
     public Ferrari(final int speed, final String color, final int horsePower, final double pPM) {
         this.speed = speed;
         this.color = color;
         this.horsePower = horsePower;
-        this.pPM = pPM;
+        this.petrolPerMiles = pPM;
     }
 
     public int getSpeed() {
@@ -25,7 +25,7 @@ public class Ferrari {
         return horsePower;
     }
 
-    public double getpPM() {
-        return pPM;
+    public double getPetrolPerMiles() {
+        return petrolPerMiles;
     }
 }
