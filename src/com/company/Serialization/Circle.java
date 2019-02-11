@@ -1,14 +1,14 @@
 package com.company.Serialization;
 
 public class Circle extends Figure {
-    private static double radius;
-    private static double perimeter;
+    private double radius;
+    private double perimeter;
 
     public Circle(double radius) {
         this.radius = radius;
     }
 
-    public static double getRadius() {
+    public double getRadius() {
         return radius;
     }
 
@@ -16,7 +16,7 @@ public class Circle extends Figure {
         this.radius = radius;
     }
 
-    public static double getPerimeter() {
+    public double getPerimeter() {
         return perimeter = 2 * Math.PI * getRadius() ;
     }
 
@@ -25,7 +25,7 @@ public class Circle extends Figure {
     }
 
     @Override
-    public void outLine() {
+    public void asString() {
         System.out.println("Circle with radius " + getRadius() + "Has perimeter " + getPerimeter());
     }
 }
