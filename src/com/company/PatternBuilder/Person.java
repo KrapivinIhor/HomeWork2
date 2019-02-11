@@ -6,7 +6,7 @@ public class Person {
     private final double weight;
     private final double height;
 
-    public Person(final PersonBuilder personBuilder) {
+    private Person(final PersonBuilder personBuilder) {
         this.name = personBuilder.getName();
         this.age = personBuilder.getAge();
         this.weight = personBuilder.getWeight();
@@ -21,15 +21,15 @@ public class Person {
                 " weight = " + weight + "\n" + "\t" +
                 " height = " + height;
     }
-}
 
-class PersonBuilder {
+
+public static class PersonBuilder {
     private String name;
     private int age;
     private double weight;
     private double height;
 
-   private PersonBuilder name(String name){
+    public PersonBuilder name(String name){
         this.name = name;
         return this;
     }
@@ -68,4 +68,5 @@ class PersonBuilder {
     public Person build(){
         return new Person(this);
     }
+}
 }
