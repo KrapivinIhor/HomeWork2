@@ -6,7 +6,7 @@ public class Person {
     private final double weight;
     private final double height;
 
-    Person(final PersonBuilder personBuilder) {
+    public Person(final PersonBuilder personBuilder) {
         this.name = personBuilder.getName();
         this.age = personBuilder.getAge();
         this.weight = personBuilder.getWeight();
@@ -29,7 +29,7 @@ class PersonBuilder {
     private double weight;
     private double height;
 
-    public PersonBuilder name(String name){
+   private PersonBuilder name(String name){
         this.name = name;
         return this;
     }
