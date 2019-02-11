@@ -1,14 +1,14 @@
 package com.company.Serialization;
 
 public class Square extends Figure {
-    private static double side;
-    private static double perimeter;
+    private double side;
+    private double perimeter;
 
     public Square(double side) {
         this.side = side;
     }
 
-    public static double getSide() {
+    public double getSide() {
         return side;
     }
 
@@ -16,7 +16,7 @@ public class Square extends Figure {
         this.side = side;
     }
 
-    public static double getPerimeter() {
+    public double getPerimeter() {
         return perimeter = 4 * side;
     }
 
@@ -25,7 +25,7 @@ public class Square extends Figure {
     }
 
     @Override
-    public void outLine() {
+    public void asString() {
         System.out.println("Square with a side " + getSide() + "Has perimeter " + getPerimeter());
     }
 }

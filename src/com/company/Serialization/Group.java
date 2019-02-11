@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Group extends Figure {
+    private List<Figure> figures;
 
-
-    private List<Figure> figureList;
-
-    public Group(List<Figure> figureList) {
-        this.figureList = new ArrayList<>(figureList);
+    public Group(List<Figure> figures) {
+        this.figures = new ArrayList<>(figures);
     }
 
-    public List<Figure> getFigureList() {
-        return figureList;
+    public List<Figure> getFigures() {
+        return figures;
     }
 
     @Override
-    public void outLine() {
-        System.out.println("Figure array consist of: ");
-        for (Figure figure : figureList) {
-            System.out.println(figure.toString());
+    public void asString() {
+        System.out.println("Group with elements:");
+        for (Figure figure : figures) {
+            System.out.print("\t");
+            figure.asString();
+            System.out.println();
         }
     }
 }

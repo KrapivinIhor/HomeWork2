@@ -1,32 +1,34 @@
 package com.company.Serialization;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 public class Triangle extends Figure{
-    private static double side;
-    private static double perimeter;
+    private  double[] sidesOfTriangle;
+    private  double perimeter;
 
-    public Triangle(double side) {
-        this.side = side;
+    public Triangle(double[] side) {
+        this.sidesOfTriangle = side;
     }
 
-    public static double getSide() {
-        return side;
+    public Triangle(double v, int i, int i1) {
+        super();
     }
 
-    public void setSide(double side) {
-        this.side = side;
+    public double[] getSidesOfTriangle() {
+        return sidesOfTriangle;
     }
 
-    public static double getPerimeter() {
-        return perimeter = 3 * getSide();
+
+    public double getPerimeter() {
+        return perimeter = Arrays.stream(sidesOfTriangle).sum();
     }
 
-    public void setPerimeter(double perimeter) {
-        this.perimeter = perimeter;
-    }
+
 
     @Override
-    public void outLine() {
-        System.out.println("Triangle with a side " + getSide() + "Has perimeter " + getPerimeter());
+    public void asString() {
+        System.out.println("Triangle with a side " + getSidesOfTriangle() + "Has perimeter " + getPerimeter());
     }
 
 

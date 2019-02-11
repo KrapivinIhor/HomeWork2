@@ -4,31 +4,66 @@ import java.util.List;
 
 public class TransformToXML {
 
-    public static void printAsXML(List<Figure> figures){
-        System.out.println("<?xml version=" + "\"" + "1.0" + "\"" +"?>");
-        System.out.println("<GROUP>");
-        kindOfTheFigureXML(figures);
-        System.out.println("</GROUP>");
-    }
+        public static String transform(Figure figure) {
+            String xmlLines = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+            xmlLines += transformOfFigure(figure);
+            return xmlLines;
+        }
 
-    public static void kindOfTheFigureXML(List<Figure> figures){
-        for (Figure f : figures) {
-            if (f instanceof Triangle){
-                System.out.println("\t" + "<KIND>" + "Triangle" + "</KIND>" + "\n" +
-                                   "\t" + "<SIDE>" + Triangle.getSide() + "</SIDE>" + "\n" +
-                                   "\t" + "<PERIMETER>" + Triangle.getPerimeter() + "</PERIMETER>");
+        private static String transformOfFigure(Figure figures) {
+            String xmlLines = "";
+            if (figures instanceof Triangle) {
+                xmlLines += transformOfTriangleAsXML((Triangle) figures);
+            } else if (figures instanceof Square) {
+                xmlLines += transformOfSquareAsXML((Square) figures);
+            } else if (figures instanceof Circle) {
+                xmlLines += transformOfCircleAsXML((Circle) figures);
+            } else if (figures instanceof Group) {
+                xmlLines += transformOfGroupAsXML((Group) figures);
             }
-            else if (f instanceof Circle){
-                System.out.println("\t" + "<KIND>" + "Circle" + "</KIND>" + "\n" +
-                                   "\t" + "<RADIUS>" + Circle.getRadius() + "</RADIUS>" + "\n" +
-                                   "\t" + "<PERIMETER>" + Circle.getPerimeter() + "</PERIMETER>");
+            return xmlLines;
+        }
+        private static String transformOfTriangleAsXML(Triangle triangle) {
+            String xmlLinesTriangle = "<Triangle>\n";
+            double[] triangleSides = triangle.getSidesOfTriangle();
+            for (int index = 0; index < 3; index++) {
+                xmlLinesTriangle += "\t<side_" + index + ">";
+                xmlLinesTriangle += triangleSides[index];
+                xmlLinesTriangle += "</side_" + index + ">\n";
             }
-            else if (f instanceof Square){
-                System.out.println("\t" + "<KIND>" + "Triangle" + "</KIND>" + "\n" +
-                                   "\t" + "<SIDE>" + Square.getSide() + "</SIDE>" + "\n" +
-                                   "\t" + "<PERIMETER>" + Square.getPerimeter() + "</PERIMETER>");
+            xmlLinesTriangle += "\t<perimeter>" + triangle.getPerimeter() + "</perimeter>\n";
+            xmlLinesTriangle += "</Triangle>\n";
+            return xmlLinesTriangle;
+        }
+
+        private static String transformOfSquareAsXML(Square square) {
+            String xmlLinesSquare = "<Square>\n";
+            xmlLinesSquare += "\t<side>" + square.getSide() + "</side>\n";
+            xmlLinesSquare += "\t<perimeter>" + square.getPerimeter() + "</perimeter>\n";
+            xmlLinesSquare += "</Square>\n";
+            return xmlLinesSquare;
+        }
+
+        private static String transformOfCircleAsXML(Circle circle) {
+            String xmlLinesCircle = "<Circle>\n";
+            xmlLinesCircle += "\t<radius>" + circle.getRadius() + "</radius>\n";
+            xmlLinesCircle += "\t<perimeter>" + circle.getPerimeter() + "</perimeter>\n";
+            xmlLinesCircle += "</Circle>\n";
+            return xmlLinesCircle;
+        }
+
+        private static String transformOfGroupAsXML(Group group) {
+            StringBuilder xmlStrBuilderGroup = new StringBuilder();
+            xmlStrBuilderGroup.append("<Group>\n\t<shapes>\n");
+            List<Figure> shapes = group.getFigures();
+            for (Figure figure : shapes) {
+                String[] lines = transformOfFigure(figure).split("\n");
+                for (String line : lines) {
+                    xmlStrBuilderGroup.append("\t\t").append(line).append("\n");
+                }
             }
+            xmlStrBuilderGroup.append("\t</shapes>\n</Group>\n");
+            return xmlStrBuilderGroup.toString();
 
         }
     }
-}
