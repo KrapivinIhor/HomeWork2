@@ -25,7 +25,7 @@ public class Square extends Figure {
     }
 
     @Override
-    public void asString() {
+    public void parametersOfFigure() {
         System.out.println("Square with a side " + getSide() + "Has perimeter " + getPerimeter());
     }
 }

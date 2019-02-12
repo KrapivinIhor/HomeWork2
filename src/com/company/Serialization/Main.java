@@ -29,9 +29,9 @@ public class Main {
         Figure mainGroup = new Group(list3);
 
         System.out.println("XML string");
-        System.out.println(TransformToXML.transform(mainGroup));
+        System.out.println(TransformToXml.transform(mainGroup));
         System.out.println("############################################");
         System.out.println("JSON string");
-        System.out.println(TransformToJSON.transform(mainGroup));
+        System.out.println(TransformToJson.transform(mainGroup));
      }
 }

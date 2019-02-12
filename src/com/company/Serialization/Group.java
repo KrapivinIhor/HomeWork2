@@ -15,11 +15,11 @@ public class Group extends Figure {
     }
 
     @Override
-    public void asString() {
+    public void parametersOfFigure() {
         System.out.println("Group with elements:");
         for (Figure figure : figures) {
             System.out.print("\t");
-            figure.asString();
+            figure.parametersOfFigure();
             System.out.println();
         }
     }

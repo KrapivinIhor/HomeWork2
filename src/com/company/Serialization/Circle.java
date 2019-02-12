@@ -25,7 +25,7 @@ public class Circle extends Figure {
     }
 
     @Override
-    public void asString() {
+    public void parametersOfFigure() {
         System.out.println("Circle with radius " + getRadius() + "Has perimeter " + getPerimeter());
     }
 }

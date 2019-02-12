@@ -27,7 +27,7 @@ public class Triangle extends Figure{
 
 
     @Override
-    public void asString() {
+    public void parametersOfFigure() {
         System.out.println("Triangle with a side " + getSidesOfTriangle() + "Has perimeter " + getPerimeter());
     }
 
