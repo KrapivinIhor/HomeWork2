@@ -2,7 +2,7 @@ package com.company.Serialization;
 
 import java.util.List;
 
-public class TransformToXML {
+public class TransformToXml {
 
         public static String transform(Figure figure) {
             String xmlLines = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";

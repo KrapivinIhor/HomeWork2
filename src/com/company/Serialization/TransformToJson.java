@@ -1,8 +1,7 @@
 package com.company.Serialization;
 import java.util.List;
 
-public class TransformToJSON {
-
+public class TransformToJson {
 
         public static String transform(Figure figures) {
             String jsonLines = "{";

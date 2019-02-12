@@ -22,7 +22,6 @@ public class Person {
                 " height = " + height;
     }
 
-
 public static class PersonBuilder {
     private String name;
     private int age;
@@ -68,5 +67,5 @@ public static class PersonBuilder {
     public Person build(){
         return new Person(this);
     }
-}
+    }
 }
