@@ -1,4 +1,4 @@
-package com.company.ImmutableClass;
+package com.company.immutableclass;
 
 public final class Ferrari {
     private final int speed;

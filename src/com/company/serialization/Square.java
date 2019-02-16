@@ -1,4 +1,4 @@
-package com.company.Serialization;
+package com.company.serialization;
 
 public class Square extends Figure {
     private double side;

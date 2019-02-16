@@ -1,4 +1,4 @@
-package com.company.Serialization;
+package com.company.serialization;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,7 @@ public class Main {
         System.out.println("XML string");
         System.out.println(TransformToXml.transform(mainGroup));
         System.out.println("############################################");
+        System.out.println();
         System.out.println("JSON string");
         System.out.println(TransformToJson.transform(mainGroup));
      }

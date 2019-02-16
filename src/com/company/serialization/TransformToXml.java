@@ -1,4 +1,4 @@
-package com.company.Serialization;
+package com.company.serialization;
 
 import java.util.List;
 

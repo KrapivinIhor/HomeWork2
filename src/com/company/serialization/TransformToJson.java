@@ -1,10 +1,10 @@
-package com.company.Serialization;
+package com.company.serialization;
 import java.util.List;
 
 public class TransformToJson {
 
         public static String transform(Figure figures) {
-            String jsonLines = "{";
+            String jsonLines = "{\n";
             jsonLines += transformOfFigure(figures);
             jsonLines += "\n}";
             return jsonLines;
@@ -25,7 +25,8 @@ public class TransformToJson {
         }
 
         private static String presentationOfTriangleAsJSON(Triangle triangle) {
-            StringBuilder jsonLinesTriangle = new StringBuilder("\t\"Triangle\" : {\n");
+            StringBuilder jsonLinesTriangle = new StringBuilder("\t  {\n");
+            jsonLinesTriangle.append("\t\t\"radius\" : \"" + "Triangle" + "," + "\"\n");
             double[] triangleSides = triangle.getSidesOfTriangle();
             for (int i = 0; i < 2; i++) {
                 jsonLinesTriangle.append("\t\t\"side_").append(i + 1).append("\"").append(" : ");
@@ -33,7 +34,7 @@ public class TransformToJson {
                 jsonLinesTriangle.append(",\n");
             }
             jsonLinesTriangle.append("\t\t\"side_3\" : ");
-            jsonLinesTriangle.append("\"").append(triangleSides[2]).append("\"");
+            jsonLinesTriangle.append("\"").append(triangleSides[2]).append("\"").append(",");
             jsonLinesTriangle.append("\n\t\t\"perimeter\" : ");
             jsonLinesTriangle.append("\"").append(triangle.getPerimeter()).append("\"");
             jsonLinesTriangle.append("\n\t}");
@@ -41,23 +42,26 @@ public class TransformToJson {
         }
 
         private static StringBuilder presentationOfSquareAsJSON(Square square) {
-            StringBuilder jsonLinesSquare = new StringBuilder("\t\"Square\" : {\n");
-            jsonLinesSquare.append("\t\t\"side\" : \"" + square.getSide() + "\"\n");
+            StringBuilder jsonLinesSquare = new StringBuilder("\t  {\n");
+            jsonLinesSquare.append("\t\t\"type\" : \"" + "Square" + "\"" + ",\n" );
+            jsonLinesSquare.append("\t\t\"side\" : \"" + square.getSide()  + "\"" + ",\n" );
+            jsonLinesSquare.append("\t\t\"perimeter\" : \"" + square.getPerimeter() + "\"\n");
             jsonLinesSquare.append("\t}");
             return jsonLinesSquare;
         }
 
         private static StringBuilder presentationOfCircleAsJSON(Circle circle) {
-            StringBuilder jsonLinesCircle = new StringBuilder("\t\"Circle\" : {\n");
-            jsonLinesCircle.append("\t\t\"radius\" : \"" + circle.getRadius() + "\"\n");
-            jsonLinesCircle.append("\t\t\"perimeter\" : \"" + circle.getRadius() + "\"\n");
+            StringBuilder jsonLinesCircle = new StringBuilder("\t  {\n");
+            jsonLinesCircle.append("\t\t\"type\" : \"" + "Circle" + "\"" + ",\n");
+            jsonLinesCircle.append("\t\t\"radius\" : \"" + circle.getRadius() + "\"" + ",\n");
+            jsonLinesCircle.append("\t\t\"perimeter\" : \"" + circle.getRadius() + "\"" + "\n");
             jsonLinesCircle.append("\t}");
             return jsonLinesCircle;
         }
 
         private static String presentationOfGroupAsJSON(Group group) {
             StringBuilder jsonLinesGroup = new StringBuilder();
-            jsonLinesGroup.append("\t\"Group\" : {\n");
+            jsonLinesGroup.append("\t\"figures\" : [\n");
             List<Figure> figures = group.getFigures();
             for (Figure figure : figures) {
                 String[] lines = transformOfFigure(figure).split("\n");
@@ -67,8 +71,10 @@ public class TransformToJson {
                 jsonLinesGroup.setCharAt(jsonLinesGroup.length() - 1, ',');
                 jsonLinesGroup.append("\n");
             }
-            jsonLinesGroup.deleteCharAt(jsonLinesGroup.length() - 2); // Removing last comma
-            jsonLinesGroup.append("\t}");
+
+            jsonLinesGroup.deleteCharAt(jsonLinesGroup.length() - 2);
+            jsonLinesGroup.append("\t]");
             return jsonLinesGroup.toString();
         }
+
 }
