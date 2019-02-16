@@ -1,4 +1,4 @@
-package com.company.ImmutableClass;
+package com.company.immutableclass;
 
 public class Main {
 

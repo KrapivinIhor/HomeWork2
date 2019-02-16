@@ -1,4 +1,4 @@
-package com.company.PatternBuilder;
+package com.company.patternbuilder;
 
 public class Main {
 

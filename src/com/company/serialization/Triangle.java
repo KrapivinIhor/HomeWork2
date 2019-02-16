@@ -1,7 +1,6 @@
-package com.company.Serialization;
+package com.company.serialization;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Triangle extends Figure{
     private  double[] sidesOfTriangle;
