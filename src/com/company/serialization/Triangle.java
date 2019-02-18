@@ -18,17 +18,12 @@ public class Triangle extends Figure{
         return sidesOfTriangle;
     }
 
-
     public double getPerimeter() {
         return perimeter = Arrays.stream(sidesOfTriangle).sum();
     }
-
-
 
     @Override
     public void parametersOfFigure() {
         System.out.println("Triangle with a side " + getSidesOfTriangle() + "Has perimeter " + getPerimeter());
     }
-
-
 }

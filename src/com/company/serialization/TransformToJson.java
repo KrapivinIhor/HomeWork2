@@ -71,10 +71,8 @@ public class TransformToJson {
                 jsonLinesGroup.setCharAt(jsonLinesGroup.length() - 1, ',');
                 jsonLinesGroup.append("\n");
             }
-
             jsonLinesGroup.deleteCharAt(jsonLinesGroup.length() - 2);
             jsonLinesGroup.append("\t]");
             return jsonLinesGroup.toString();
         }
-
 }

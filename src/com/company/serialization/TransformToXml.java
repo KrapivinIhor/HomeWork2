@@ -64,6 +64,5 @@ public class TransformToXml {
             }
             xmlStrBuilderGroup.append("\t</shapes>\n</Group>\n");
             return xmlStrBuilderGroup.toString();
-
         }
     }
